@@ -1,8 +1,21 @@
 .App {
   text-align: center;
 }
+.logoSized{
+  position: relative;
+  height: 200px;
+}
 
-.App-logo {
+.startImg{
+  position: relative;
+  height: 50px;
+}
+
+.homeImg{
+  position: relative;
+  height: 30px;
+}
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
@@ -21,4 +34,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
