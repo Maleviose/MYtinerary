@@ -6,6 +6,8 @@ import "./assets/css/App.css";
 //Agrego React router con "npm install -- save react-router"
 // import { BrowseRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./component/header.js";
+import Footer from "./component/footer.js";
+import Content from "./component/content";
 
 class App extends Component {
   // constructor(arg) {
@@ -43,12 +45,14 @@ class App extends Component {
 
         {/*********** Aca empiezo el landing page!!!! ***********/}
         <Header>
+          <Content></Content>
           {/* <Router>
             {/* <Switch>
                 <Route path="/log-in" Component={login}>Log in </Route>
                 <Route path="/create-acc" Component={createacc}>Create Account </Route>
             </Switch>
             </Router> */}
+          <Footer>hola</Footer>
         </Header>
       </div>
     );
