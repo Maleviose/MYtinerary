@@ -5,7 +5,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <img src={home} alt="home" className="homeImg"></img>
+        <a href="/"><img src={home} alt="home" className="homeImg"></img></a>
       </div>
     );
   }

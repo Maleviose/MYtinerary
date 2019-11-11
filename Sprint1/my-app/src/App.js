@@ -1,13 +1,13 @@
 //Cambiar Credenciales en windows para git!!!!
 // Route https://www.youtube.com/watch?v=oWEys5cX3kE
 import React, { Component } from "react";
-import "./assets/css/App.css";
 //Agrego Bootstrap con "npm install react-bootstrap bootstrap"
 //Agrego React router con "npm install -- save react-router"
 // import { BrowseRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./component/header.js";
-import Footer from "./component/footer.js";
-import Content from "./component/content";
+import Header from "./component/header.jsx";
+import Footer from "./component/footer.jsx";
+import Content from "./component/content.jsx";
+import Build from "./component/build.jsx";
 
 class App extends Component {
   // constructor(arg) {
@@ -43,17 +43,19 @@ class App extends Component {
                 <button onClick={this.restar.bind(this)}>-</button>
                 <Header></Header> */}
 
-        {/*********** Aca empiezo el landing page!!!! ***********/}
-        <Header>
-          <Content></Content>
-          {/* <Router>
+
+           {/* <Router>
             {/* <Switch>
                 <Route path="/log-in" Component={login}>Log in </Route>
                 <Route path="/create-acc" Component={createacc}>Create Account </Route>
             </Switch>
             </Router> */}
-          <Footer>hola</Footer>
-        </Header>
+
+        {/*********** Aca empiezo el landing page!!!! ***********/}
+        <Header></Header>
+        <Content></Content>
+        <Build></Build>
+        <Footer></Footer>
       </div>
     );
   }
