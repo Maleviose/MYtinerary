@@ -1,3 +1,5 @@
+const Cities = require('../models/citiesModel')
+
 const citiesController = {
     listarCities: (req, res) => {
 
