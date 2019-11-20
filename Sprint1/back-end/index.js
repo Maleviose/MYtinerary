@@ -1,13 +1,15 @@
-const express = require('express')
-const cors = require('cors')
-require('dotenv').config()
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
 
-require('./functions/database')
+require("./functions/database");
 
-const app = express()
+const app = express();
 
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-app.use('/api', require('./routes/cities'))
-app.listen(process.env.PORT, () => console.log("Listening on PORT" + process.env.PORT))
+app.use("/api", require("./routes/cities")); //Poner siempre el /api en el insomnia!
+app.listen(process.env.PORT, () =>
+  console.log("Listening on PORT " + process.env.PORT)
+);

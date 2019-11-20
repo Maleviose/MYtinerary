@@ -1,17 +1,38 @@
-const Cities = require('../models/citiesModel')
+const City = require("../models/citiesModel");
 
 const citiesController = {
-    listarCities: (req, res) => {
+  listarCities: async (req, res) => {
+    const data = await City.find(); //con el .find trae ya todo del DB, si le agrego un id puede traer uno puntual
+    res.json({ respuesta: data });
+  },
+  cargarCities: async (req, res) => {
+    //Lo hago async ya que al grabar tarda tiempo
+    //como la peticion viene del cuerpo (req.body) y url (req.params)
+    var uno = req.body.ciudad;
+    var dos = req.body.pais;
 
-    },
-    cargarCities: (req, res) => {
+    const nuevaCiudad = new City({
+      ciudad: uno,
+      pais: dos
+    });
+    await nuevaCiudad.save(); //await hace que espere a que termine y ejecuta lo de abajo
+    res.send("respuesta " + "OK");
+  },
+  borrarCities: async (req, res) => {
+    var id = req.params.id;
+    await City.findOneAndDelete({ _id: id }),
+      res.json({ respuesta: "Ciudad Borrada" });
+  },
+  modificarCities: async (req, res) => {
+    //Hay que mandar todos los campos de vuelta, si le falta uno le pone null
 
-    },
-    borrarCities: (req, res) => {
+    var id = req.params.id;
+    var ciudad = req.body.ciudad;
+    var pais = req.body.pais;
 
-    },
-    modificarCities: (req, res) => {
-
-    }
-}
-module.exports = citiesController
+    await City.findOneAndUpdate({ _id: id }, { ciudad: ciudad, pais: pais });
+    //si quiero modificar un solo parametro hay un metodo patch
+    res.json({ respuesta: "Ciudad modificada" });
+  }
+};
+module.exports = citiesController;
