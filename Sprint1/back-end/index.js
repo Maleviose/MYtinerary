@@ -1,3 +1,6 @@
+//git config user.email"tu@email.com"
+//git config user.name"tunombre"
+
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
