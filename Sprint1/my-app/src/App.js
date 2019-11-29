@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./component/header.jsx";
 import Footer from "./component/footer.jsx";
 import Content from "./component/content.jsx";
-import City from "./component/city.jsx";
+import Cities from "./component/cities.jsx";
 import Login from "./component/login.jsx";
 import Create from "./component/create.jsx";
 
@@ -54,7 +54,7 @@ class App extends Component {
             <Header></Header>
           
               <Route exact={true} path="/" component={Content} />
-              <Route path='/cities' component={City}/>
+              <Route path='/cities' component={Cities}/>
               <Route path='/login' component={Login}/>
               <Route path='/signup' component={Create}/>
            <Footer></Footer>
