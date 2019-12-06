@@ -19,10 +19,10 @@ async componentDidMount(){
 
 }
 
-  borrarCiudad = async(e)=>{
-    let id_borrar = e.target.id
-    this.props.borrarCiudad(id_borrar)
-  }
+  // borrarCiudad = async(e)=>{
+  //   let id_borrar = e.target.id
+  //   this.props.borrarCiudad(id_borrar)
+  // }
 
 
 render(){
@@ -32,7 +32,7 @@ render(){
     
       { <ul>
         {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}
-        borrarCiudad={this.borrarCiudad}/>})}
+        /* borrarCiudad={this.borrarCiudad}*//>})}
       </ul>} {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}
 
        
@@ -61,38 +61,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cities)
-
-
-
-
-
-
-// fetch("http://localhost:4000/api/cities", {
-//         method: "GET", //estructura del JSON
-//       }).then(function (response) { //Una vez que termine esto hace esto
-//         if (response.ok)
-//             return response.json();
-//         throw new Error(response.statusText);
-//       }).then(function (json) {
-//        console.log(json);
-//         data = json.respuesta;
-//         PasandoAlista(data)
-//       })
-
-
-//       function PasandoAlista(cosas) {
-//         let res = [];
-//         for(let i =0; i<cosas.length; i++){
-//           res.push(<li>+cosas[i].ciudad + " " +cosas[i].pais + </li>);
-//           }
-//           return <ul>res</ul>;
-//         }
-        
-// console.log(data)
-// export default class City extends Component {
-//   render() {
-//     return (
-//         <div></div>
-//     );
-//   }
-// }

@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", require("./routes/cities")); //Poner siempre el /api en el insomnia!
+app.use("/api", require("./routes/itinerary"));
 app.listen(process.env.PORT, () =>
   console.log("Listening on PORT " + process.env.PORT)
 );

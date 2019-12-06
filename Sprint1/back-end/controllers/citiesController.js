@@ -27,10 +27,10 @@ const citiesController = {
     //Hay que mandar todos los campos de vuelta, si le falta uno le pone null
 
     var id = req.params.id;
-    var ciudad = req.body.ciudad;
-    var pais = req.body.pais;
+    var ciudad1 = req.body.ciudad;
+    var pais1 = req.body.pais;
 
-    await City.findOneAndUpdate({ _id: id }, { ciudad: ciudad, pais: pais });
+    await City.findOneAndUpdate({ _id: id }, { ciudad: ciudad1, pais: pais1 });
     //si quiero modificar un solo parametro hay un metodo patch
     res.json({ respuesta: "Ciudad modificada" });
   }
