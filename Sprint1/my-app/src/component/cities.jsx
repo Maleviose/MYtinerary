@@ -13,7 +13,7 @@ class Cities extends Component {
   }
 
 async componentDidMount(){
-  const res = await axios.get("http://localhost:4000/api/cities");
+  const res = await axios.get("http://localhost:5000/api/cities");
   this.props.rellenarCiudades(res.data.respuesta) //despacha una accion que complete datos de la api
   //this.setState({listaPaises:res.data.respuesta});
 
