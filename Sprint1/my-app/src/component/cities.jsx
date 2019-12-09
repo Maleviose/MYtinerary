@@ -13,12 +13,10 @@ class Cities extends Component {
   }
 
 async componentDidMount(){
-  const res = await axios.get("http://localhost:5000/api/cities");
+  const res = await axios.get("http://localhost:4000/api/cities");
   this.props.rellenarCiudades(res.data.respuesta) //despacha una accion que complete datos de la api
   //this.setState({listaPaises:res.data.respuesta});
-
 }
-
   // borrarCiudad = async(e)=>{
   //   let id_borrar = e.target.id
   //   this.props.borrarCiudad(id_borrar)
@@ -31,10 +29,11 @@ render(){
     <div>
     
       { <ul>
-        {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}
-        /* borrarCiudad={this.borrarCiudad}*//>})}
+        {this.props.lista_ciudades.map((elem, i) => { return <a href="/itineraries" alt="intinerarios"> 
+          <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}/>
+        </a>})}
       </ul>} {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}
-
+      {/* https://es.reactjs.org/docs/accessibility.html   LEEEEERRRRRRRR ESO */}
        
     </div>
     
@@ -47,9 +46,6 @@ const mapDispatchToProps = (dispatch) => {
     rellenarCiudades:(infoDelaApi) =>{
       dispatch({type: 'GET_CIUDADES', payload: infoDelaApi})
     },
-    borrarCiudad: (id_a_borrar) => {
-      dispatch({type: 'BORRAR_CIUDADES',payload: id_a_borrar})
-    }
   }
 }
 

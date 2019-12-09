@@ -9,6 +9,7 @@ import Header from "./component/header.jsx";
 import Footer from "./component/footer.jsx";
 import Content from "./component/content.jsx";
 import Cities from "./component/cities.jsx";
+import Itineraries from "./component/itineraries.jsx";
 import Login from "./component/login.jsx";
 import Create from "./component/create.jsx";
 
@@ -55,6 +56,7 @@ class App extends Component {
           
               <Route exact={true} path="/" component={Content} />
               <Route path='/cities' component={Cities}/>
+              <Route path='/Itineraries' component={Itineraries}/>
               <Route path='/login' component={Login}/>
               <Route path='/signup' component={Create}/>
            <Footer></Footer>
