@@ -3,6 +3,7 @@ import axios from "axios"
 import "../assets/css/App.css";
 import City from "./city"
 import {connect} from "react-redux"
+import { ListGroup, ListGroupItem} from 'reactstrap';
 
 class Cities extends Component {
   constructor(props){
@@ -28,11 +29,13 @@ render(){
   return(
     <div>
     
-      { <ul>
-        {this.props.lista_ciudades.map((elem, i) => { return <a href="/itineraries" alt="intinerarios"> 
-          <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}/>
-        </a>})}
-      </ul>} {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}
+      { 
+        <ListGroup flush> 
+          <ListGroupItem tag="a" href="#"><h4>Cities</h4></ListGroupItem>
+          {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}/>})}
+        </ListGroup>
+      } 
+      {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}
       {/* https://es.reactjs.org/docs/accessibility.html   LEEEEERRRRRRRR ESO */}
        
     </div>

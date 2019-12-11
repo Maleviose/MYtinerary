@@ -1,20 +1,28 @@
 .App {
-  text-align: center;
-}
-.logoSized{
-  position: relative;
-  height: 200px;
+    text-align: center;
 }
 
-.startImg{
-  position: relative;
-  height: 50px;
+.logoSized {
+    position: relative;
+    height: 200px;
 }
 
-.homeImg{
-  position: relative;
-  height: 30px;
+Footer {
+    position: fixed;
+    margin-bottom: 0;
 }
+
+.startImg {
+    position: relative;
+    height: 50px;
+}
+
+.homeImg {
+    position: relative;
+    height: 30px;
+}
+
+
 /* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
