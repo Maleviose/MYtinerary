@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import Form from "./form.jsx"
 import "../assets/css/App.css";
 
 export default class Create extends Component {
   render() {
     return (
       <div>
-        <h3>Soy el create</h3>
+        <Form></Form>
       </div>
       
     );

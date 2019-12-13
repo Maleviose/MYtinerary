@@ -22,13 +22,15 @@ const ItineraryController = {
         var cuatro = req.body.rating;
         var cinco = req.body.duration;
         var seis = req.body.hashtags;
+        var siete = req.body.cityId;
 
         const nuevoIntinerario = new Itinerary({
             titulo: uno,
             picURL: tres,
             rating: cuatro,
             duration: cinco,
-            hashtags: seis
+            hashtags: seis,
+            cityId: siete,
         });
         await nuevoIntinerario.save(); //await hace que espere a que termine y ejecuta lo de abajo
         res.send("respuesta " + "OK");
@@ -47,10 +49,20 @@ const ItineraryController = {
         var rating1 = req.body.rating;
         var duration1 = req.body.duration;
         var hashtags1 = req.body.hashtags;
+        var cityId1 = req.body.cityId;
 
         await Itinerary.findOneAndUpdate({ _id: id }, { titulo: titulo1, picURL: picURL1, rating: rating1, duration: duration1, hashtags: hashtags1 });
         //si quiero modificar un solo parametro hay un metodo patch
         res.json({ respuesta: "Ciudad modificada" });
+    },
+
+    traerItinerarioPorCiudad: async(req, res) => {
+        let ciudadURL = req.params.cityId;
+        let cityId = req.body.cityId;
+        const data = await Itinerary.find({ cityId: ciudadURL }); //con el .find trae ya todo del DB, si le agrego un id puede traer uno puntual
+
+        res.json({ respuesta: data });
+
     }
 };
 module.exports = ItineraryController;

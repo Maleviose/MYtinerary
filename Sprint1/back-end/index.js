@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.use("/api", require("./routes/cities")); //Poner siempre el /api en el insomnia!
 app.use("/api", require("./routes/itineraries"));
+app.use("/api", require("./routes/activities"));
 app.listen(process.env.PORT, () =>
     console.log("Listening on PORT " + process.env.PORT)
 );

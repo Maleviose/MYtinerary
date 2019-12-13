@@ -32,7 +32,7 @@ render(){
       { 
         <ListGroup flush> 
           <ListGroupItem tag="a" href="#"><h4>Cities</h4></ListGroupItem>
-          {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad}/>})}
+          {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad} cityId={elem._id}/>})}
         </ListGroup>
       } 
       {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}

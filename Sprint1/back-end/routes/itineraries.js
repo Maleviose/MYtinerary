@@ -10,4 +10,8 @@ router
     .route("/itineraries/:id")
     .delete(itinerariesController.borrar)
     .put(itinerariesController.modificar);
+router
+    .route("/itineraries/:cityId")
+    .get(itinerariesController.traerItinerarioPorCiudad);
+
 module.exports = router;

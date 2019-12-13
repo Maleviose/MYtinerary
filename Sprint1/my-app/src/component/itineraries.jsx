@@ -8,18 +8,25 @@ class Itineraries extends Component {
 
 
 async componentDidMount(){
-  const res = await axios.get("http://localhost:4000/api/itineraries");
+  let cityId = this.props.cityId;
+  const res = await axios.get("http://localhost:4000/api/itineraries/"+cityId);
   this.props.traerIntinerario(res.data.respuesta) //despacha una accion que complete datos de la api
   //this.setState({listaPaises:res.data.respuesta});
 }
 
+filtrarItinerario = (it) =>{
+  let idCiudad = it.target.cityId
+  this.props.traerItinerarioPorCiudad(idCiudad)
+  
+}
 
 render(){
   return(
     <div>
       { <ul>
         {this.props.lista_intinerario.map((elem, i) => { return <Itinerary key={i} id ={i} 
-        titulo={elem.titulo} rating = {elem.rating} duration = {elem.duration} hashtags={elem.hashtags}/>})}
+        titulo={elem.titulo} rating = {elem.rating} duration = {elem.duration} hashtags={elem.hashtags}
+        filtrarItinerario={elem.cityId}/>})}
       </ul>}
     </div>
   );
@@ -28,8 +35,11 @@ render(){
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    traerIntinerario: (titulo) => {
-      dispatch({type: 'GET_INTINERARIO',payload: titulo})
+    traerIntinerario: (info) => {
+      dispatch({type: 'GET_INTINERARIO',payload: info})
+    },
+    traerItinerarioPorCiudad: (itinerario)=>{
+      dispatch({type: 'FILTRAR_INTINERARIO', payload:itinerario})
     }
   }
 }
