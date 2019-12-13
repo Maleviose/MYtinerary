@@ -28,16 +28,14 @@ render(){
   console.log(this.props.lista_ciudades)
   return(
     <div>
-    
       { 
         <ListGroup flush> 
           <ListGroupItem tag="a" href="#"><h4>Cities</h4></ListGroupItem>
-          {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad} cityId={elem._id}/>})}
-        </ListGroup>
-      } 
+            {this.props.lista_ciudades.map((elem, i) => { return <City key={i} id ={i} pais={elem.pais} ciudad={elem.ciudad} cityId={elem._id}/>})}
+          </ListGroup>
+      }
       {/*El componente City es un componentente funcional: no tienen estado, pero pueden recibir props  */}
       {/* https://es.reactjs.org/docs/accessibility.html   LEEEEERRRRRRRR ESO */}
-       
     </div>
     
   );
