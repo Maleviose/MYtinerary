@@ -7,15 +7,21 @@ export default class Form extends React.Component {
       username: '',
       mail: '',
       password: '',
-      pic: null,
+      userPic: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSubmit(event) {
-    alert('A new user was submitted: ' + this.state.username);
-    event.preventDefault();
+
+  handleSubmit(e) {
+    console.log(e.json)
+    e.preventDefault();
+    if(this.state.value !=undefined)
+    {
+      alert('Your input value is: ' + this.state.value)
+    }
+
   }
 
   handleInputChange(event) {
@@ -31,7 +37,7 @@ export default class Form extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form name="new_acc" className="form" onSubmit={this.handleSubmit}>
         <label>
           Username: 
           <input
@@ -58,16 +64,17 @@ export default class Form extends React.Component {
               value={this.state.password}
               onChange={this.handleInputChange} />
         </label>
+        <br/>
         <label>
           Load a profile pic:
           <input 
-            name = "pic"
+            name = "userPic"
             type="text"
             value={this.state.pic}
             onChange={this.handleInputChange} />
         </label>
         <br/>
-        <label><input type="submit" value="Submit" /></label>
+        <label><button type="submit"id="new_acc_submit"className="btn-default btn">Submit</button></label>
       </form>
     );
   }
