@@ -15,7 +15,8 @@ app.use(express.json());
 app.use("/api", require("./routes/cities")); //Poner siempre el /api en el insomnia!
 app.use("/api", require("./routes/itineraries"));
 app.use("/api", require("./routes/activities"));
-app.use("/api", require("./routes/users"));
+app.use("/api", require("./routes/createUsers"));
+app.use("/api", require("./routes/login"));
 app.listen(process.env.PORT, () =>
     console.log("Listening on PORT " + process.env.PORT)
 );

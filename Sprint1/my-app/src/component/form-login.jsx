@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 export default class FormLogin extends React.Component {
   constructor(props) {
@@ -10,6 +11,19 @@ export default class FormLogin extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
   }
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    if (this.state.value != undefined) {
+      alert("Your input value is: " + this.state.value);
+    }
+    const respuesta = await axios.post("http://localhost:4000/api/login", {
+      mail: this.state.mail,
+      password: this.state.password,
+    });
+
+    alert(respuesta.data.message);
+  };
 
   handleInputChange(event) {
     const target = event.target;
@@ -47,7 +61,12 @@ export default class FormLogin extends React.Component {
         </label>
         <br />
         <label>
-          <button type="submit" id="login" className="btn-default btn">
+        <button
+            type="submit"
+            id="new_acc_submit"
+            onClick={this.handleSubmit}
+            className="btn-default btn"
+          >
             Log in
           </button>
         </label>

@@ -23,19 +23,21 @@ const usersController = {
         //validando datos de entrada!
         if (storeUsername.length < 5) {
             res.json({ success: false, message: "Username less than 5 letters" });
-        } //else if (!Funciones.esMail(dos)) {
-        //        res.json({ success: false, message: "Invalid Mail" });
-        //     } else if (Funciones.esRepetido(dos)) {
-        //        res.json({ success: false, message: "Already have an account" });
-        //     }
-        const nuevoUsuario = new User({
-            username: storeUsername,
-            mail: storeEmail,
-            password: hashedPass,
-            userPic: storePic
-        });
+        } 
+        
+        const emailRepetido = await User.findOne({mail:storeEmail});
+        if(emailRepetido!=null){
+            res.json({ success: false, message: "Invalid mail, already exists account" });
+        }
 
-        await nuevoUsuario.save(); //await hace que espere a que termine y ejecuta lo de abajo
+            const nuevoUsuario = new User({
+                username: storeUsername,
+                mail: storeEmail,
+                password: hashedPass,
+                userPic: storePic
+            });
+
+        await nuevoUsuario.save(); 
         res.json({ success: true, message: "Usuario cargado" });
     }
 };
