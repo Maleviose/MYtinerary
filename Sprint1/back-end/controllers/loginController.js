@@ -2,6 +2,10 @@ const Login = require("../models/loginModel");
 const User = require("../models/createUsersModel");
 const bcrypt = require('bcrypt');
 
+require("dotenv").config();
+
+const jwt = require("jsonwebtoken");
+
 const loginController = {
     ingresar: async(req, res) => {
         var storeEmail = req.body.mail;
@@ -26,8 +30,16 @@ const loginController = {
                 res.json({ success: false, message: "Invalid password" });
             }
             else{
-
+                jwt.sign({mail:storeEmail},
+                    process.env.Key,
+                    {expiresIn:3600},(err,token)=>{
+                        res.json({token: token, usuario: {username: storeEmail, password: storePassword}})
+                        // console.log("token")
+                        // console.log(token)
+                    })
+                
             }
+            
                 
         }
         
