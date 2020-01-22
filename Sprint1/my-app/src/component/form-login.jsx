@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
 
 export default class FormLogin extends React.Component {
@@ -14,7 +14,7 @@ export default class FormLogin extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    if (this.state.value != undefined) {
+    if (this.state.value !== undefined) {
       alert("Your input value is: " + this.state.value);
     }
     const respuesta = await axios.post("http://localhost:4000/api/login", {
@@ -37,7 +37,7 @@ export default class FormLogin extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <form name="login" className="form" onSubmit={this.handleSubmit}>
         <label>

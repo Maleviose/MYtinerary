@@ -6,12 +6,12 @@ import { connect } from "react-redux";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 class Cities extends Component {
-  constructor(props) {
-    super(props);
-    // this.state = {
-    //   listaPaises: []
-    // } //Saco el estado para usar redux, ya no va a tener estado propio
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     listaPaises: []
+  //   } //Saco el estado para usar redux, ya no va a tener estado propio
+  // }
 
   async componentDidMount() {
     const res = await axios.get("http://localhost:4000/api/cities");
@@ -24,7 +24,7 @@ class Cities extends Component {
   // }
 
   render() {
-    console.log(this.props.lista_ciudades);
+   // console.log(this.props.lista_ciudades);
     return (
       <div>
         {

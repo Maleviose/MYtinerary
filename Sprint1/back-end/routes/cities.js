@@ -5,12 +5,13 @@ const passport = require('../passport')
 
 
 router
-.route("/cities")
-//.get(citiesController.listarCities)
-.post(citiesController.cargarCities);
+    .route("/cities")
+    //.get(citiesController.listarCities)
+    .post(citiesController.cargarCities);
 
-router.get("/prueba", passport.authenticate("jwt", { session: false }), citiesController.listarCities);
-    
+router
+    .get("/prueba", passport.authenticate("jwt", { session: false }), citiesController.listarCities);
+
 router
     .route("/cities/:id")
     .delete(citiesController.borrarCities)

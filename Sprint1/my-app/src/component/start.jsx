@@ -6,7 +6,7 @@ import React, { Component } from "react";
 export default class Start extends Component {
   render() {
     return (
-      <a href="/cities" alt="start"><img src={start} alt="start" className="startImg"></img></a>
+      <a href="/prueba" alt="start"><img src={start} alt="start" className="startImg"></img></a>
     );
   }
 }

@@ -3,7 +3,7 @@ const City = require("../models/citiesModel");
 const citiesController = {
     listarCities: async(req, res) => {
         const data = await City.find(); //con el .find trae ya todo del DB, si le agrego un id puede traer uno puntual
-        console.log(data)
+        //console.log(data)
         res.json({ respuesta: data });
     },
     cargarCities: async(req, res) => {

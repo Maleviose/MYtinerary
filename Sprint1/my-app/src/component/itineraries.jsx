@@ -20,8 +20,8 @@ render(){
   return(
     <div>
       { <ul>
-        {this.state.itinerariosDeLaCiudad.map((elem, i) => { return <Itinerary key={i} id ={i} 
-        titulo={elem.titulo} rating = {elem.rating} duration = {elem.duration} hashtags={elem.hashtags}
+        {this.state.itinerariosDeLaCiudad.map((elem, i) => { return <Itinerary key={i} id={i} 
+        titulo={elem.titulo} rating={elem.rating} duration={elem.duration} hashtags={elem.hashtags}
         filtrarItinerario={elem.cityId}/>})}
       </ul>}
     </div>
